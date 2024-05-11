@@ -3053,7 +3053,5 @@ getfenv(0)["Library"] = Library;
 getfenv(0)["Flags"] = Flags;
 getfenv(0)["Pointers"] = Pointers;
 
-end
-
 return Library;
 
