@@ -3054,3 +3054,55 @@ getfenv(0)["Flags"] = Flags;
 getfenv(0)["Pointers"] = Pointers;
 
 
+do
+    local Example = Library:Window({User = game.Players.LocalPlayer.DisplayName,Icon = game:GetService("Players"):GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)})
+    Library.Watermark:UpdateText("| Evolution (Put stuff here idk)")
+    Example:Catagory({Name = "Aimbot"})
+    local Tab1 = Example:Page({Name = "Ragebot"})
+    Example:Page({Name = "Anti-Aim", Icon = "rbxassetid://14436167187"})
+    Example:Page({Name = "Legitbot", Icon = "rbxassetid://16081386298"})
+    Example:Catagory({Name = "Visuals"})
+    Example:Page({Name = "Players", Icon = "rbxassetid://16149111731"})
+    Example:Page({Name = "World", Icon = "rbxassetid://10507357657"})
+    Example:Catagory({Name = "Miscellaneous"})
+    --
+    local Section = Tab1:Section({Name = "Main", Size = 180})
+    local Sec2 = Tab1:Section({Name = "Section", Size = 200})
+    local Sec3 = Tab1:Section({Name = "Other", Side = "Right", Size = 200, Scroll = true})
+    --
+    Section:Toggle({Name = "Checkbox"})
+    Section:Toggle({Name = "Hello World"})
+    Section:Toggle({Name = "Lorem ipsum dolor"})
+    Section:Slider({Name = "Slider", Suffix = "%"})
+    Section:Toggle({Name = "Key List", Flag = "KeyList", Callback = function(s) Library.KeyList:SetVisible(s) end})
+    Section:Toggle({Name = "Watermark", Flag = "Watermark", Callback = function(s) Library.Watermark:SetVisible(s) end})
+    --
+    Sec2:List({Name = "Scroll Combo",Options = {"green fn", "fent", "shit", "fort", "nite"}, ScrollingMax = 3})
+    Sec2:List({Name = "Combo",Options = {"green fn", "fent", "shit", "fort", "nite"}})
+    Sec2:List({Name = "Multi Combo",Options = {"green fn", "fent", "shit", "fort", "nite"}, Max = 3, ScrollingMax = 3})
+    Sec2:Keybind({Name = "Key Pick", Default = Enum.UserInputType.MouseButton2})
+    local a = Sec2:Colorpicker({Name = "Color", Flag = "test", Callback = function(s) end})
+    a:Colorpicker({})
+    Sec2:Textbox({Name = "Input"})
+    --
+    local ThemePickers = {}
+    Sec3:List({Name = "Theme", Flag = "SelectedTheme", Options = {"Default","Red","Purple"}})
+    Sec3:Button({Name = "Load Theme", Callback = function() 
+        Library:LoadTheme(Library.Flags["SelectedTheme"])
+        for Option,Picker in next, ThemePickers do
+            Picker:Set(Library.Theme[Option])
+        end;
+    end})
+    ThemePickers["Accent"] = Sec3:Colorpicker({Name = "Accent", Flag = "LibraryAccent", Default = Library.Theme["Accent"], Callback = function(s) Library:ChangeThemeColor("Accent", s) end})
+    ThemePickers["Dark Accent"] = Sec3:Colorpicker({Name = "Dark Accent", Flag = "LibraryDarkAccent", Default = Library.Theme["Dark Accent"], Callback = function(s) Library:ChangeThemeColor("Dark Accent", s) end})
+    ThemePickers["Text"] = Sec3:Colorpicker({Name = "Text", Flag = "LibraryText", Default = Library.Theme["Text"], Callback = function(s) Library:ChangeThemeColor("Text", s) end})
+    ThemePickers["Dark Text"] = Sec3:Colorpicker({Name = "Dark Text", Flag = "LibraryDarkText", Default = Library.Theme["Dark Text"], Callback = function(s) Library:ChangeThemeColor("Dark Text", s) end})
+    ThemePickers["Holder"] = Sec3:Colorpicker({Name = "Holder", Flag = "LibraryHolder", Default = Library.Theme["Holder"], Callback = function(s) Library:ChangeThemeColor("Holder", s) end})
+    ThemePickers["Top"] = Sec3:Colorpicker({Name = "Top", Flag = "LibraryTop", Default = Library.Theme["Top"], Callback = function(s) Library:ChangeThemeColor("Top", s) end})
+    ThemePickers["Un-Selected"] = Sec3:Colorpicker({Name = "Un-Selected", Flag = "LibraryUnSelected", Default = Library.Theme["Un-Selected"], Callback = function(s) Library:ChangeThemeColor("Un-Selected", s) end})
+    ThemePickers["Selected"] = Sec3:Colorpicker({Name = "Selected", Flag = "LibrarySelected", Default = Library.Theme["Selected"], Callback = function(s) Library:ChangeThemeColor("Selected", s) end})
+    ThemePickers["Outline"] = Sec3:Colorpicker({Name = "Outline", Flag = "LibraryOutline", Default = Library.Theme["Outline"], Callback = function(s) Library:ChangeThemeColor("Outline", s) end})
+    Sec3:Toggle({Name = "Typing Effect", Flag = "Typing", Callback = function(s) Library.Typing = s end})
+end
+
+return Library;
