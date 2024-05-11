@@ -1,5 +1,4 @@
--- // Evolution Library
--- // Made By _notportal (Give Credit)
+
 local Library = {};
 do
 	Library = {
