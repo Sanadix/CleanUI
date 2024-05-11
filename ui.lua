@@ -1,5 +1,5 @@
 
-local Library = {https://raw.githubusercontent.com/Sanadix/CleanUI/main/ui.lua};
+local Library = {};
 do
 	Library = {
 		Open = true;
