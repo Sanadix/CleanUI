@@ -4616,8 +4616,9 @@ function library:CreateSettingsTab(menu)
     creditsSection:AddText({text = "Foavv"})
     creditsSection:AddText({text = "Retro"})
     creditsSection:AddText({text = "1vah"})
-    creditsSection:AddSeparator({text = 'Helpers'});
     creditsSection:AddText({text = "Hira"})
+    creditsSection:AddSeparator({text = 'Helpers'});
+    creditsSection:AddText({text = "..."})
 
 
     configSection:AddBox({text = 'Config Name', flag = 'configinput'})
